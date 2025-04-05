@@ -50,9 +50,9 @@
       answered++;
 
       if (answered >= 9) {
-        document.getElementById("result").innerText = `You scored ${score}/3`;
+  let message = score >= 2 ? "You Passed!" : "Try Again!";
+  document.getElementById("result").innerText = `You scored ${score}/3 – ${message}`;
       }
-    }
   </script>
 </body>
 </html>
