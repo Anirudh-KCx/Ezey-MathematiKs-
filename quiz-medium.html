@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Medium Math Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Medium Math Quiz</h1>
+    <a href="quiz.html">← Back to Level Menu</a>
+  </header>
+
+  <main>
+    <h2>1. What is 12 × 4?</h2>
+    <button onclick="check(this, 48)">48</button>
+    <button onclick="check(this, 36)">36</button>
+    <button onclick="check(this, 52)">52</button>
+
+    <h2>2. Solve: 3² + 4² = ?</h2>
+    <button onclick="check(this, 25)">25</button>
+    <button onclick="check(this, 20)">20</button>
+    <button onclick="check(this, 30)">30</button>
+
+    <h2>3. What is 100 ÷ 5?</h2>
+    <button onclick="check(this, 20)">20</button>
+    <button onclick="check(this, 25)">25</button>
+    <button onclick="check(this, 15)">15</button>
+
+    <div id="result" style="margin-top:20px; font-weight:bold;"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ezey-MathematiKs</p>
+  </footer>
+
+  <script>
+    let score = 0;
+    let answered = 0;
+
+    function check(btn, correct) {
+      if (parseInt(btn.innerText) === correct) {
+        btn.style.backgroundColor = "green";
+        score++;
+      } else {
+        btn.style.backgroundColor = "red";
+      }
+
+      btn.disabled = true;
+      answered++;
+
+      if (answered >= 9) {
+        document.getElementById("result").innerText = `You scored ${score}/3`;
+      }
+    }
+  </script>
+</body>
+</html>
