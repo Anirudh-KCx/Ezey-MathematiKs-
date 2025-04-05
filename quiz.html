@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Math Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Math Quiz</h1>
+  </header>
+
+  <main>
+    <h2>What is 7 × 6?</h2>
+    <button onclick="checkAnswer(this, 42)">42</button>
+    <button onclick="checkAnswer(this, 36)">36</button>
+    <button onclick="checkAnswer(this, 48)">48</button>
+
+    <h2>What is the square root of 81?</h2>
+    <button onclick="checkAnswer(this, 9)">9</button>
+    <button onclick="checkAnswer(this, 8)">8</button>
+    <button onclick="checkAnswer(this, 7)">7</button>
+
+    <div id="result" style="margin-top:20px; font-weight:bold;"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ezey-MathematiKs</p>
+  </footer>
+
+  <script>
+    let score = 0;
+    let questionsAnswered = 0;
+
+    function checkAnswer(btn, correct) {
+      if (btn.innerText == correct) {
+        btn.style.backgroundColor = "green";
+        document.getElementById("result").innerText = "Correct!";
+        score++;
+      } else {
+        btn.style.backgroundColor = "red";
+        document.getElementById("result").innerText = "Oops! Try again.";
+      }
+
+      btn.disabled = true;
+      questionsAnswered++;
+
+      if (questionsAnswered >= 2) {
+        document.getElementById("result").innerText += ` Your score: ${score}/2`;
+      }
+    }
+  </script>
+</body>
+</html>
