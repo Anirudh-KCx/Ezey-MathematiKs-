@@ -28,6 +28,7 @@
     <button onclick="check(this, 15)">15</button>
 
     <div id="result" style="margin-top:20px; font-weight:bold;"></div>
+    <div id="nextBtn" style="margin-top:20px;"></div>
   </main>
 
   <footer>
@@ -52,7 +53,25 @@
       if (answered >= 9) {
   let message = score >= 2 ? "You Passed!" : "Try Again!";
   document.getElementById("result").innerText = `You scored ${score}/3 – ${message}`;
-      }
+
+  if (score >= 2) {
+    let nextPage = "";
+
+    if (window.location.href.includes("quiz-easy")) {
+      nextPage = "quiz-medium.html";
+    } else if (window.location.href.includes("quiz-medium")) {
+      nextPage = "quiz-hard.html";
+    }
+
+    if (nextPage) {
+      document.getElementById("nextBtn").innerHTML = `
+        <a href="${nextPage}">
+          <button>Next Level →</button>
+        </a>
+      `;
+    }
+  }
+}
   </script>
 </body>
 </html>
