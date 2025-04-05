@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Easy Math Quiz</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>Easy Math Quiz</h1>
+    <a href="quiz.html">← Back to Level Menu</a>
+  </header>
+
+  <main>
+    <h2>1. What is 5 + 3?</h2>
+    <button onclick="check(this, 8)">8</button>
+    <button onclick="check(this, 6)">6</button>
+    <button onclick="check(this, 9)">9</button>
+
+    <h2>2. What is 10 - 4?</h2>
+    <button onclick="check(this, 6)">6</button>
+    <button onclick="check(this, 5)">5</button>
+    <button onclick="check(this, 7)">7</button>
+
+    <h2>3. What is 2 × 3?</h2>
+    <button onclick="check(this, 6)">6</button>
+    <button onclick="check(this, 4)">4</button>
+    <button onclick="check(this, 8)">8</button>
+
+    <div id="result" style="margin-top:20px; font-weight:bold;"></div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Ezey-MathematiKs</p>
+  </footer>
+
+  <script>
+    let score = 0;
+    let answered = 0;
+
+    function check(btn, correct) {
+      if (parseInt(btn.innerText) === correct) {
+        btn.style.backgroundColor = "green";
+        score++;
+      } else {
+        btn.style.backgroundColor = "red";
+      }
+
+      btn.disabled = true;
+      answered++;
+
+      if (answered >= 9) {
+        document.getElementById("result").innerText = `You scored ${score}/3`;
+      }
+    }
+  </script>
+</body>
+</html>
